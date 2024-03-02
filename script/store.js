@@ -1,64 +1,5 @@
-// {"id":101,
-//"category":"Comedy",
-// "image":"https://i.ibb.co/0QRxkd5/pexels-jan-kop-iva-3525908.jpg",
-// "isActive":true,
-// "title":"10 Kids Unaware of Their Costume",
-// "author":{"name":"John Doe"},
-// "description":"It is one thing to subject yourself to a costume mishap",
-// "comment_count":560,
-// "view_count":1568,
-// "posted_time":5}
-
-
-const showCard = async (search) => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
-    const data = await res.json()
-    const result = data.posts
-    console.log(result, search)
-    displayCard(result, search)
-
-    // result.forEach(element => {
-
-    //     if (element.category === search) {
-    //         console.log(element.category)
-    //         displayCard(element.category)
-    //     }
-    //     else {
-
-    //     }
-    // });
-
-
-}
-
-
-const handleSearchButton = () => {
-    // toggleLoadingSpinner(true)
-    const alartText = document.getElementById('alart-text')
-    alartText.classList.add('hidden')
-    const searchField = document.getElementById('search-field')
-    let searchText = searchField.value
-    if (searchText === 'Comedy' || searchText === 'Music' || searchText === 'Coding') {
-        showCard(searchText)
-        searchField.value = ""
-    }
-    else {
-        alartText.classList.remove('hidden')
-        searchField.value = ""
-    }
-
-
-}
-
-const displayCard = (result, search) => {
-    console.log(result)
-    const commentContainer = document.getElementById('comment-container')
-    commentContainer.innerText = ""
-    result.forEach((element) => {
-        console.log(element.category)
-        if (element.category === search) {
-            const div = document.createElement("div")
-            div.innerHTML = `
+const div = document.createElement("div")
+        div.innerHTML = `
                     <div
                         class="h-[350px] lg:h-[250px] w-full flex gap-2 lg:gap-6 flex-1 p-4 lg:p-10 border-2  border-[#797DFC] rounded-3xl flex-col lg:flex-row">
                         <div class="avatar online h-[72px] w-[72px]">
@@ -122,11 +63,5 @@ const displayCard = (result, search) => {
                             </div>
                         </div>
                     </div>
-             `
-            commentContainer.appendChild(div)
-        }
-
-    });
-}
-
-
+    `
+    commentContainer.appendChild(div)
