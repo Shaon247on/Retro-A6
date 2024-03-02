@@ -14,14 +14,108 @@
     <title>Document</title>
 </head>
 
-<body class="container mx-44">
+<body class="container mx-auto font-mulish">
     <!-- header section  -->
-    <header>
-        <h1>hello MFS</h1>
+    <header class="mt-14">
+        <nav class="mx-4 lg:mx-12">
+            <div class="flex justify-between">
+                <div class="flex-1">
+                    <a class="text-4xl font-extrabold">ReTro</a>
+                </div>
+                <div class="hidden lg:flex gap-9 justify-center items-center">
+                    <!-- home icon -->
+                    <div title="Home" class="text-[#12132D]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-[#12132d99]">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                    </div>
+                    <!-- edit icon  -->
+                    <div title="Edit">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-[#12132d99]">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                        </svg>
+                    </div>
+                    <!-- profile icon  -->
+                    <div title="Profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-[#12132d99]">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                        </svg>
+                    </div>
+                    <!-- Report icon  -->
+                    <div title="Report">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-[#12132d99]">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+                        </svg>
+                    </div>
+                    <!-- sing in button  -->
+                    <button
+                        class="btn bg-[#797DFC] font-bold text-lg w-[130px] rounded-full text-white border-none">Sign
+                        In</button>
+                </div>
+                <button
+                        class="btn bg-[#797DFC] font-bold text-lg w-[130px] rounded-full text-white border-none block lg:hidden">Sign
+                        In</button>
+            </div>
+        </nav>
+        <!-- banner section  -->
+        <section class="my-12">
+            <div class="w-full lg:w-[1170px] h-[300px] lg:h-[550px] mx-auto rounded-[30px] relative">
+                <img src="images/bgbanner.png" alt="" class="bottom-0 object-cover absolute rounded-[30px] z-20">
+                <div class="h-full w-full bg-[#12132D] absolute rounded-[30px] object-cover z-10"></div>
+                <div class="flex flex-col lg:flex-row absolute z-30 top-[25%] left-[15%] gap-12 lg:gap-20">
+                    <div>
+                        <h1 class="text-3xl lg:text-6xl font-bold text-white">Welcome to the <br> <span class="text-[#797DFC]">ReTro</span>
+                            Forum</h1>
+                        <p class="text-base lg:text-lg text-[#ffffffCC] my-3 lg:my-8  w-[250px] lg:w-[370px]">Share your favorite opinion and win special rewards</p>
+                        <div class="bg-white w-[255px] lg:w-[380px] rounded-full py-0 lg:py-1">
+                            <input type="text" placeholder="Search here anything"
+                                class="input outline-none border-none w-[65%] rounded-full" />
+                            <button
+                                class="btn text-white bg-[#797DFC] font-bold text-base lg:text-lg w-[33%] rounded-full">Search</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex flex-col justify-center gap-3 w-[290px] h-[240px] bg-[#797DFC] lg:bg-white text-center px-8 rounded-2xl text-xl font-medium text-[#12132DCC]">
+                            <p class="flex justify-between"><span>Registered Users</span><span>390</span></p>
+                            <p class="flex justify-between"><span>Forum</span><span>234</span></p>
+                            <p class="flex justify-between"><span>Topics</span><span>3</span></p>
+                            <p class="flex justify-between"><span>Replies</span><span>42356</span></p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+            </div>           
+        </section>
     </header>
     <!-- main section  -->
     <main>
-
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold">Let’s Discuss</h1>
+            <p class="w-[680px] mx-auto mt-[24px] mb-10 font-inter text-[#12132D99]">Join our vibrant discussion platform, connecting minds worldwide. Engage in diverse conversations, share insights, and explore topics on our dynamic and interactive discussion website.</p>
+        </div>
+        <div>
+            <!-- card section  -->
+            <div id="comment-container" class="flex">
+                <!-- card photo section  -->
+                <div>
+                    <img src="https://i.ibb.co/0QRxkd5/pexels-jan-kop-iva-3525908.jpg" alt="" class="w-[72px] h-[72px]">
+                </div>
+                <!-- card details section  -->
+                <div>
+                    
+                </div>
+            </div>
+            <div></div>
+        </div>
     </main>
     <!-- footer section  -->
     <footer>
