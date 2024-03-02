@@ -19,34 +19,18 @@ const showCard = async (search) => {
 }
 
 
-const handleSearchButton = () => {
-    // toggleLoadingSpinner(true)
-    const alartText = document.getElementById('alart-text')
-    alartText.classList.add('hidden')
-    const searchField = document.getElementById('search-field')
-    let searchText = searchField.value
-    if (searchText === 'Comedy' || searchText === 'Music' || searchText === 'Coding') {
-        showCard(searchText)
-        searchField.value = ""
-    }
-    else {
-        alartText.classList.remove('hidden')
-        searchField.value = ""
-    }
-}
-
 const displayCard = (result, search) => {
     console.log(result)
     const commentContainer = document.getElementById('comment-container')
-    commentContainer.innerText = ""
-    result.forEach((element) => {
-        console.log(element.category)
-        if (element.category === search) {
+    
+    commentContainer.innerText = ""    
+    result.forEach((element) => {       
+        if (element.category === search) {            
             const div = document.createElement("div")
             div.innerHTML = `
                     <div
                         class="h-[350px] lg:h-[250px] w-full flex gap-2 lg:gap-6 flex-1 p-4 lg:p-10 border-2  border-[#797DFC] rounded-3xl flex-col lg:flex-row">
-                        <div class="avatar h-[72px] w-[72px] ${element.isActive? 'online': 'offline'}">
+                        <div class="avatar h-[72px] w-[72px] ${element.isActive ? 'online' : 'offline'}">
                             <div class="w-24 rounded-xl">
                                 <img src="https://i.ibb.co/0QRxkd5/pexels-jan-kop-iva-3525908.jpg" />
                             </div>
@@ -110,9 +94,42 @@ const displayCard = (result, search) => {
              `
             console.log(element)
             commentContainer.appendChild(div)
-           
+            loadingSpinner(false)
+
         }
     });
+}
+
+const handleSearchButton = () => {
+    loadingSpinner(true)
+    const alartText = document.getElementById('alart-text')
+    alartText.classList.add('hidden')
+    const searchField = document.getElementById('search-field')
+    let searchText = searchField.value
+    if (searchText === 'Comedy' || searchText === 'Music' || searchText === 'Coding') {
+        showCard(searchText)
+        searchField.value = ""
+    }
+    else {
+        alartText.classList.remove('hidden')
+        searchField.value = ""
+    }
+}
+
+
+
+
+const loadingSpinner = (isLoading)=> {
+    const loadSpinner = document.getElementById('loading-spinner')
+    const commentContainer = document.getElementById('comment-container')
+    if(isLoading){
+        commentContainer.classList.add('hidden')
+        loadSpinner.classList.remove('hidden')
+    }
+    else{
+        commentContainer.classList.remove('hidden')
+        loadSpinner.classList.add('hidden')
+    }
 }
 
 
@@ -143,4 +160,8 @@ function handleMarkedButton(title, view) {
                         </div>
     `
     markedCommentContainer.appendChild(div)
+
+    const allDiv = document.getElementById('counting-class')
+    allDiv.querySelectorAll('div')
+    // console.log(allDiv)
 }
