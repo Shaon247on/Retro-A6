@@ -16,19 +16,6 @@ const showCard = async (search) => {
     const result = data.posts
     console.log(result, search)
     displayCard(result, search)
-
-    // result.forEach(element => {
-
-    //     if (element.category === search) {
-    //         console.log(element.category)
-    //         displayCard(element.category)
-    //     }
-    //     else {
-
-    //     }
-    // });
-
-
 }
 
 
@@ -46,8 +33,6 @@ const handleSearchButton = () => {
         alartText.classList.remove('hidden')
         searchField.value = ""
     }
-
-
 }
 
 const displayCard = (result, search) => {
@@ -61,7 +46,7 @@ const displayCard = (result, search) => {
             div.innerHTML = `
                     <div
                         class="h-[350px] lg:h-[250px] w-full flex gap-2 lg:gap-6 flex-1 p-4 lg:p-10 border-2  border-[#797DFC] rounded-3xl flex-col lg:flex-row">
-                        <div class="avatar online h-[72px] w-[72px]">
+                        <div class="avatar h-[72px] w-[72px] ${element.isActive? 'online': 'offline'}">
                             <div class="w-24 rounded-xl">
                                 <img src="https://i.ibb.co/0QRxkd5/pexels-jan-kop-iva-3525908.jpg" />
                             </div>
@@ -111,7 +96,7 @@ const displayCard = (result, search) => {
                                         <span class="text-[#12132D99]">${element.posted_time} Min</span>
                                     </div>
                                 </div>
-                                <div> <button class="btn rounded-full bg-[#10B981] w-13 h-13 p-3"><svg
+                                <div> <button onclick="handleMarkedButton('${element.title}', '${element.view_count}')" class="btn clicker rounded-full bg-[#10B981] w-13 h-13 p-3"><svg
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -121,12 +106,41 @@ const displayCard = (result, search) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                
              `
+            console.log(element)
             commentContainer.appendChild(div)
+           
         }
-
     });
 }
 
 
+
+
+
+function setInnerText(id, value) {
+    const availableSeat = document.getElementById(id)
+    availableSeat.innerText = value
+}
+
+function handleMarkedButton(title, view) {
+    const markedCommentContainer = document.getElementById('marked-comment-container')
+    const div = document.createElement("div")
+    div.innerHTML = `
+    <div class="flex justify-between px-3">
+                            <h1 class="">${title}</h1>
+                            <div class="flex gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg>
+                                <span>${view}</span>
+                            </div>
+                        </div>
+    `
+    markedCommentContainer.appendChild(div)
+}
