@@ -11,21 +11,11 @@
 
 
 const showCard = async (search) => {
-    try {
-        const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
-        
-        if (!res.ok) {
-            throw new Error(`Failed to fetch data. Status: ${res.status}`);
-        }
-
-        const data = await res.json();
-        const result = data.posts;
-
-        displayCard(result, search);
-    } catch (error) {
-        console.error('An error occurred:', error.message);
-        // Handle the error, show a user-friendly message, or perform other actions as needed.
-    }
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
+    const data = await res.json()
+    const result = data.posts
+    // console.log(result.length, search)
+    displayCard(result, search)
 }
 
 
@@ -154,6 +144,13 @@ function setInnerText(id, value) {
     availableSeat.innerText = value
 }
 
+const title = '10 Kids Unaware of Their Halloween Costume'
+const view = 542
+const tryButton = document.getElementById('try-button')
+tryButton.addEventListener('click', function (){
+    handleMarkedButton(title, view)
+})
+
 function handleMarkedButton(title, view) {
     // const markedCommentContainer = document.getElementById('marked-comment-container');
     const countingClass = document.getElementById('counting-class')
@@ -161,7 +158,7 @@ function handleMarkedButton(title, view) {
     const div = document.createElement("div");
     div.innerHTML = `
         <div class="flex justify-between px-3">
-            <h1 class="">${title}</h1>
+            <h1 class="text-[#12132D] font-semibold">${title}</h1>
             <div class="flex gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
