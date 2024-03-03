@@ -108,7 +108,8 @@ const handleSearchButton = () => {
     alartText.classList.add('hidden')
     const searchField = document.getElementById('search-field')
     let searchText = searchField.value
-    if (searchText === 'Comedy' || searchText === 'Music' || searchText === 'Coding') {
+    let searchTextToLower = searchText.toLowerCase()
+    if (searchTextToLower === 'comedy' || searchTextToLower === 'music' || searchTextToLower === 'coding') {
         loadingSpinner(true)
         showCard(searchText)
         searchField.value = ""
@@ -144,8 +145,8 @@ function setInnerText(id, value) {
     availableSeat.innerText = value
 }
 
-const title = '10 Kids Unaware of Their Halloween Costume'
-const view = 542
+const title = "Introduction to Python: A Beginner's Guide"
+const view = 780
 const tryButton = document.getElementById('try-button')
 tryButton.addEventListener('click', function (){
     handleMarkedButton(title, view)
@@ -203,7 +204,7 @@ const displayLatestPosts = (data) =>{
                     <div class=" mt-6 space-y-4">
                         <div class="flex gap-3 items-center">
                             <img src="images/Frame2.svg" alt="">
-                            <p class="text-[#12132D99]">${element.author.posted_date? element.author.posted_date: 'Unknown'}</p>
+                            <p class="text-[#12132D99]">${element.author.posted_date? element.author.posted_date: 'No publish date'}</p>
                         </div>
                         <h2 class="font-extrabold text-[18px]">${element.title}</h2>
                         <p class="text-[#12132D99]">${element.description}</p>
