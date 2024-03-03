@@ -14,13 +14,13 @@ const showCard = async (search) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
     const data = await res.json()
     const result = data.posts
-    console.log(result, search)
+    // console.log(result.length, search)
     displayCard(result, search)
 }
-
+showCard()
 
 const displayCard = (result, search) => {
-    console.log(result)
+    // console.log(result,length)
     const commentContainer = document.getElementById('comment-container')
 
     commentContainer.innerText = ""
@@ -92,10 +92,17 @@ const displayCard = (result, search) => {
                         </div>
                     </div>                
              `
-            console.log(element)
+            // console.log(element)
             setTimeout(() => {
                 loadingSpinner(false)
                 commentContainer.appendChild(div)
+                const MarkedCounter = document.getElementById('Marked-counter')
+                // const allButtons = document.getElementsByClassName('clicker')
+                // console.log(allButtons)
+                const sum = 0
+                const button = document.getElementsByClassName('clicker')
+                // console.log(button)
+                
             }, 2000);
 
         }
@@ -103,12 +110,13 @@ const displayCard = (result, search) => {
 }
 
 const handleSearchButton = () => {
-    loadingSpinner(true)
+    
     const alartText = document.getElementById('alart-text')
     alartText.classList.add('hidden')
     const searchField = document.getElementById('search-field')
     let searchText = searchField.value
     if (searchText === 'Comedy' || searchText === 'Music' || searchText === 'Coding') {
+        loadingSpinner(true)
         showCard(searchText)
         searchField.value = ""
     }
@@ -144,26 +152,29 @@ function setInnerText(id, value) {
 }
 
 function handleMarkedButton(title, view) {
-    const markedCommentContainer = document.getElementById('marked-comment-container')
-    const div = document.createElement("div")
-    div.innerHTML = `
-    <div class="flex justify-between px-3">
-                            <h1 class="">${title}</h1>
-                            <div class="flex gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                </svg>
-                                <span>${view}</span>
-                            </div>
-                        </div>
-    `
-    markedCommentContainer.appendChild(div)
+    // const markedCommentContainer = document.getElementById('marked-comment-container');
+    const countingClass = document.getElementById('counting-class')
 
-    const allDiv = document.getElementById('counting-class')
-    allDiv.querySelectorAll('div')
-    // console.log(allDiv)
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <div class="flex justify-between px-3">
+            <h1 class="">${title}</h1>
+            <div class="flex gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                <span>${view}</span>
+            </div>
+        </div>
+    `;
+    countingClass.appendChild(div);
+    const markedCounter = document.getElementById('Marked-counter');
+    markedCounter.innerText = countingClass.children.length;
+    // console.log(countingClass.children.length.toString())
+   
 }
+
