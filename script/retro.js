@@ -11,13 +11,23 @@
 
 
 const showCard = async (search) => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
-    const data = await res.json()
-    const result = data.posts
-    // console.log(result.length, search)
-    displayCard(result, search)
+    try {
+        const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
+        
+        if (!res.ok) {
+            throw new Error(`Failed to fetch data. Status: ${res.status}`);
+        }
+
+        const data = await res.json();
+        const result = data.posts;
+
+        displayCard(result, search);
+    } catch (error) {
+        console.error('An error occurred:', error.message);
+        // Handle the error, show a user-friendly message, or perform other actions as needed.
+    }
 }
-showCard()
+
 
 const displayCard = (result, search) => {
     // console.log(result,length)
@@ -180,20 +190,13 @@ const latestPost = async () =>{
 
 }
 
-/*
-author:
-    {name: 'John Doe', designation: 'ROR Developer', posted_date: '29 January 2024'}
-cover_image: "https://i.ibb.co/VYGSkLz/pexels-jeshootscom-442576.jpg"
-description: "Leading gaming expert with a wealth of knowledge and passion for all things gaming"
-profile_image: "https://i.ibb.co/z8zx95w/pexels-davide-de-giovanni-1649675.jpg"
-title: "Gaming Enthusiast Expert in Play"
-*/
+
 
 const displayLatestPosts = (data) =>{
-    console.log(data.length)
+    // console.log(data.length)
 
     data.forEach(element => {
-        console.log(element)
+        // console.log(element)
         const latestCardContainer = document.getElementById('latest-card-container')
         const div = document.createElement('div')        
         div.innerHTML=`
