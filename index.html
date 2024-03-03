@@ -82,9 +82,9 @@
                                 class="input outline-none border-none w-[65%] rounded-full" />
                             <button onclick="handleSearchButton()"
                                 class="btn text-white bg-[#797DFC] font-bold text-base lg:text-lg w-[33%] rounded-full">Search</button>
-                            </div>
-                            <p class="pl-5 text-red-600 hidden" id="alart-text">Kindly Provide a Valid Keyword</p>
-                    
+                        </div>
+                        <p class="pl-5 text-red-600 hidden" id="alart-text">Kindly Provide a Valid Keyword</p>
+
                     </div>
                     <div>
                         <div
@@ -102,7 +102,8 @@
         </section>
     </header>
     <!-- main section  -->
-    <main class="mt-80 lg:mt-3 mx-12 mb-96 lg:mb-2">
+    <main class="mt-80 lg:mt-3 mx-12 mb-2">
+        <!-- Let’s Discuss Section  -->
         <section>
             <div class="text-center">
                 <h1 class="text-4xl font-extrabold">Let’s Discuss</h1>
@@ -137,7 +138,7 @@
                                     your prerogative</p>
 
                             </div>
-                            <div class="flex justify-between flex-col lg:flex-row gap-2 lg:gap-0 w-[580px] border-2 border-red-600">
+                            <div class="flex justify-between flex-col lg:flex-row gap-2 lg:gap-0 w-[580px]">
                                 <div class="flex gap-4">
                                     <!-- comment section  -->
                                     <div class="flex gap-3 items-center">
@@ -185,37 +186,84 @@
                 <div class="flex-1 flex justify-center items-center hidden" id="loading-spinner">
                     <span class="loading loading-infinity loading-lg w-32"></span>
                 </div>
-                <div class="p-6 w-96" id="marked-comment-container">
+                <div class="p-6 w-80 lg:w-96" id="marked-comment-container">
                     <div class="flex justify-between items-center  mb-7">
                         <h3>Title</h3>
-                        <p>mark as read <span id="Marked-counter">0</span></p>
+                        <p class="flex gap-3 justify-center items-center"><img src="images/Frame.svg" alt=""> mark as
+                            read <span id="Marked-counter">0</span></p>
                     </div>
                     <div id="counting-class">
-                        <!-- <div class="flex justify-between px-3">
-                            <h1 class="">10 Kids Unaware of Their Halloween Costume</h1>
-                            <div class="flex gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                </svg>
-                                <span>1,568</span>
-                            </div>
-                        </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </section>
+        <!-- Join Our Forum section  -->
+        <section>
+            <div class="bg-[#12132D] flex flex-col-reverse lg:flex-row justify-center  gap-5 justify-center items-center rounded-3xl pt-16 pb-9 pl-2 lg:pl-20 pr-2 lg:pr-9 my-40">
+                <div class="space-y-8 text-center lg:text-start">
+                    <h1 class="font-extrabold text-4xl text-white">Join Our Forum</h1>
+                    <p class="font-medium text-[18px] text-[#ffffffCC]">Join us: ignite creativity, share ideas, and
+                        shape conversations. Together, let's build a vibrant community.</p>
+                    <button
+                        class="btn bg-[#797DFC] rounded-full font-bold text-white text-lg w-48 border-none">Registered
+                        Now </button>
+                </div>
+                <div>
+                    <img src="images/joinforum.png" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- latest posts section  -->
+        <section>
+            <div class="text-center mb-10">
+                <h1 class="font-extrabold text-4xl mb-5">Latest Posts</h1>
+                <P class="w-80 lg:w-[670px] mx-auto">Discover our latest posts, a mosaic of diverse topics. Engage, learn, and
+                    share your thoughts.</P>
+            </div>
+            <!-- card section  -->
+            <div id="latest-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <div class="card w-80 lg:w-96 bg-base-100 shadow-xl border-2 border-[#12132D26] p-6">
+                    <figure><img src="https://i.ibb.co/VYGSkLz/pexels-jeshootscom-442576.jpg" alt="Shoes" class="object-cover object-center" /></figure>
+                    <!-- card body  -->
+                    <div class=" mt-6 space-y-4">
+                        <div class="flex gap-3 items-center">
+                            <img src="images/Frame2.svg" alt="">
+                            <p class="text-[#12132D99]">29 January 2024</p>
+                        </div>
+                        <h2 class="font-extrabold text-[18px]">What will a mars habitat force that impact in our daily life!!!</h2>
+                        <p class="text-[#12132D99]">Leading gaming expert with a wealth of knowledge and passion for all things gaming</p>
+                        <div class="flex justify-start items-center mt-2 gap-4">
+                            <img src="https://i.ibb.co/z8zx95w/pexels-davide-de-giovanni-1649675.jpg" alt="" class="w-11 h-11 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold">Cameron Williamson</h4>
+                                <p class="text-[#12132D99]">Unknown</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Script Section -->
+        <script src="script/retro.js"></script>
+
     </main>
     <!-- footer section  -->
     <footer>
-
+        <div class="text-center my-20 lg:my-36">
+            <h1 class="text-[#12132D] text-4xl font-extrabold mb-8">ReTro</h1>
+            <p class="w-80 lg:w-[640px] mx-auto text-[#12132DB3] mb-8">Explore a lively forum curated by our passionate team. Dive into thought-provoking discussions, discover insightful posts, and become part of a vibrant community. Your voice matters – join us in shaping the future of meaningful online conversations!</p>
+            <div class="flex gap-6 justify-center mb-8">
+                <img src="images/twitter.svg" alt="">
+                <img src="images/facebook.svg" alt="">
+                <img src="images/insta.svg" alt="">
+                <img src="images/git.svg" alt="">
+            </div>
+            <h6 class="text-[#12132D80] font-light  mt-20">2017, All Rights Reserved.</h6>
+        </div>
+        
     </footer>
 
-    <!-- Script Section -->
-    <script src="script/retro.js"></script>
+
 </body>
 
 </html>

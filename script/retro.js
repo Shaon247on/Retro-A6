@@ -32,7 +32,7 @@ const displayCard = (result, search) => {
                         class="h-[350px] lg:h-[250px] w-full flex gap-2 lg:gap-6 flex-1 p-4 lg:p-10 border-2  border-[#797DFC] rounded-3xl flex-col lg:flex-row">
                         <div class="avatar h-[72px] w-[72px] ${element.isActive ? 'online' : 'offline'}">
                             <div class="w-24 rounded-xl">
-                                <img src="https://i.ibb.co/0QRxkd5/pexels-jan-kop-iva-3525908.jpg" />
+                                <img src="${element.image}" />
                             </div>
                         </div>
                         <!-- card details section  -->
@@ -93,16 +93,9 @@ const displayCard = (result, search) => {
                     </div>                
              `
             // console.log(element)
+            commentContainer.appendChild(div)                
             setTimeout(() => {
                 loadingSpinner(false)
-                commentContainer.appendChild(div)
-                const MarkedCounter = document.getElementById('Marked-counter')
-                // const allButtons = document.getElementsByClassName('clicker')
-                // console.log(allButtons)
-                const sum = 0
-                const button = document.getElementsByClassName('clicker')
-                // console.log(button)
-                
             }, 2000);
 
         }
@@ -152,7 +145,7 @@ function setInnerText(id, value) {
 }
 
 function handleMarkedButton(title, view) {
-    // const markedCommentContainer = document.getElementById('marked-comment-container');
+    const markedCommentContainer = document.getElementById('marked-comment-container');
     const countingClass = document.getElementById('counting-class')
 
     const div = document.createElement("div");
