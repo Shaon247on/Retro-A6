@@ -22,10 +22,10 @@ const showCard = async (search) => {
 const displayCard = (result, search) => {
     console.log(result)
     const commentContainer = document.getElementById('comment-container')
-    
-    commentContainer.innerText = ""    
-    result.forEach((element) => {       
-        if (element.category === search) {            
+
+    commentContainer.innerText = ""
+    result.forEach((element) => {
+        if (element.category === search) {
             const div = document.createElement("div")
             div.innerHTML = `
                     <div
@@ -93,8 +93,10 @@ const displayCard = (result, search) => {
                     </div>                
              `
             console.log(element)
-            commentContainer.appendChild(div)
-            loadingSpinner(false)
+            setTimeout(() => {
+                loadingSpinner(false)
+                commentContainer.appendChild(div)
+            }, 2000);
 
         }
     });
@@ -119,14 +121,14 @@ const handleSearchButton = () => {
 
 
 
-const loadingSpinner = (isLoading)=> {
+const loadingSpinner = (isLoading) => {
     const loadSpinner = document.getElementById('loading-spinner')
     const commentContainer = document.getElementById('comment-container')
-    if(isLoading){
+    if (isLoading) {
         commentContainer.classList.add('hidden')
         loadSpinner.classList.remove('hidden')
     }
-    else{
+    else {
         commentContainer.classList.remove('hidden')
         loadSpinner.classList.add('hidden')
     }
