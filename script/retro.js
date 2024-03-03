@@ -145,7 +145,7 @@ function setInnerText(id, value) {
 }
 
 function handleMarkedButton(title, view) {
-    const markedCommentContainer = document.getElementById('marked-comment-container');
+    // const markedCommentContainer = document.getElementById('marked-comment-container');
     const countingClass = document.getElementById('counting-class')
 
     const div = document.createElement("div");
@@ -171,3 +171,55 @@ function handleMarkedButton(title, view) {
    
 }
 
+
+
+const latestPost = async () =>{
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
+    const data = await res.json()
+    displayLatestPosts(data)
+
+}
+
+/*
+author:
+    {name: 'John Doe', designation: 'ROR Developer', posted_date: '29 January 2024'}
+cover_image: "https://i.ibb.co/VYGSkLz/pexels-jeshootscom-442576.jpg"
+description: "Leading gaming expert with a wealth of knowledge and passion for all things gaming"
+profile_image: "https://i.ibb.co/z8zx95w/pexels-davide-de-giovanni-1649675.jpg"
+title: "Gaming Enthusiast Expert in Play"
+*/
+
+const displayLatestPosts = (data) =>{
+    console.log(data.length)
+
+    data.forEach(element => {
+        console.log(element)
+        const latestCardContainer = document.getElementById('latest-card-container')
+        const div = document.createElement('div')        
+        div.innerHTML=`
+            <div class="card w-80 lg:w-auto bg-base-100 shadow-xl border-2 border-[#12132D26] p-6">
+                <figure><img src="${element.cover_image}" alt="Shoes" class="object-cover object-center" /></figure>
+                    <!-- card body  -->
+                    <div class=" mt-6 space-y-4">
+                        <div class="flex gap-3 items-center">
+                            <img src="images/Frame2.svg" alt="">
+                            <p class="text-[#12132D99]">${element.author.posted_date? element.author.posted_date: 'Unknown'}</p>
+                        </div>
+                        <h2 class="font-extrabold text-[18px]">${element.title}</h2>
+                        <p class="text-[#12132D99]">${element.description}</p>
+                        <div class="flex justify-start items-center mt-2 gap-4">
+                            <img src="${element.profile_image}" alt="" class="w-11 h-11 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold">${element.author.name}</h4>
+                                <p class="text-[#12132D99]">${element.author.designation? element.author.designation : 'Unknown'}</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        
+        `      
+        latestCardContainer.appendChild(div) 
+    });
+}
+
+latestPost()
